@@ -1,0 +1,245 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to health-focused emerald color palette with improved contrast */
+  --background: oklch(1 0 0); /* #ffffff */
+  --foreground: oklch(0.4 0.02 258); /* #475569 */
+  --card: oklch(0.97 0.01 258); /* #f1f5f9 */
+  --card-foreground: oklch(0.45 0.15 162); /* #059669 */
+  --popover: oklch(1 0 0); /* #ffffff */
+  --popover-foreground: oklch(0.4 0.02 258); /* #475569 */
+  --primary: oklch(0.45 0.15 162); /* #059669 */
+  /* Fixed primary-foreground to ensure proper contrast on primary backgrounds */
+  --primary-foreground: oklch(0.98 0.01 0); /* Near white for primary backgrounds */
+  --secondary: oklch(0.55 0.15 162); /* #10b981 */
+  /* Fixed secondary-foreground to ensure proper contrast */
+  --secondary-foreground: oklch(0.98 0.01 0); /* Near white for secondary backgrounds */
+  --muted: oklch(0.97 0.01 258); /* #f1f5f9 */
+  --muted-foreground: oklch(0.4 0.02 258); /* #475569 */
+  --accent: oklch(0.55 0.15 162); /* #10b981 */
+  /* Fixed accent-foreground to ensure proper contrast */
+  --accent-foreground: oklch(0.98 0.01 0); /* Near white for accent backgrounds */
+  --destructive: oklch(0.5 0.22 15); /* #be123c */
+  --destructive-foreground: oklch(1 0 0); /* #ffffff */
+  --border: oklch(0.9 0.005 258); /* #e5e7eb */
+  --input: oklch(0.97 0.01 258); /* #f1f5f9 */
+  --ring: oklch(0.45 0.15 162); /* #059669 */
+  --chart-1: oklch(0.55 0.15 162); /* #10b981 */
+  --chart-2: oklch(0.45 0.15 162); /* #059669 */
+  --chart-3: oklch(0.4 0.02 258); /* #475569 */
+  --chart-4: oklch(0.65 0.25 330); /* #ec4899 */
+  --chart-5: oklch(0.5 0.15 85); /* #a16207 */
+  --radius: 0.5rem;
+  --sidebar: oklch(0.97 0.01 258); /* #f1f5f9 */
+  --sidebar-foreground: oklch(0.4 0.02 258); /* #475569 */
+  --sidebar-primary: oklch(0.45 0.15 162); /* #059669 */
+  /* Fixed sidebar-primary-foreground for proper contrast */
+  --sidebar-primary-foreground: oklch(0.98 0.01 0); /* Near white */
+  --sidebar-accent: oklch(0.55 0.15 162); /* #10b981 */
+  /* Fixed sidebar-accent-foreground for proper contrast */
+  --sidebar-accent-foreground: oklch(0.98 0.01 0); /* Near white */
+  --sidebar-border: oklch(0.9 0.005 258); /* #e5e7eb */
+  --sidebar-ring: oklch(0.45 0.15 162); /* #059669 */
+}
+
+.dark {
+  /* Updated dark mode with emerald accents and proper contrast */
+  --background: oklch(0.08 0.005 258); /* Dark background */
+  --foreground: oklch(0.95 0.01 258); /* Light text */
+  --card: oklch(0.12 0.01 258); /* Dark card background */
+  --card-foreground: oklch(0.6 0.15 162); /* Emerald card text */
+  --popover: oklch(0.12 0.01 258); /* Dark popover */
+  --popover-foreground: oklch(0.95 0.01 258); /* Light popover text */
+  --primary: oklch(0.6 0.15 162); /* Brighter emerald for dark mode */
+  --primary-foreground: oklch(0.08 0.005 258); /* Dark text on emerald for proper contrast */
+  --secondary: oklch(0.2 0.02 258); /* Dark secondary */
+  --secondary-foreground: oklch(0.95 0.01 258); /* Light secondary text */
+  --muted: oklch(0.2 0.02 258); /* Dark muted */
+  --muted-foreground: oklch(0.7 0.01 258); /* Muted text */
+  --accent: oklch(0.2 0.02 258); /* Dark accent */
+  --accent-foreground: oklch(0.95 0.01 258); /* Light accent text */
+  --destructive: oklch(0.45 0.2 15); /* Dark mode destructive */
+  --destructive-foreground: oklch(0.9 0.1 15); /* Destructive text */
+  --border: oklch(0.2 0.02 258); /* Dark border */
+  --input: oklch(0.2 0.02 258); /* Dark input */
+  --ring: oklch(0.5 0.15 162); /* Emerald ring */
+  --chart-1: oklch(0.6 0.2 264); /* Dark mode chart colors */
+  --chart-2: oklch(0.7 0.17 162);
+  --chart-3: oklch(0.77 0.19 70);
+  --chart-4: oklch(0.63 0.27 304);
+  --chart-5: oklch(0.65 0.25 16);
+  --sidebar: oklch(0.15 0.01 258); /* Dark sidebar */
+  --sidebar-foreground: oklch(0.95 0.01 258); /* Light sidebar text */
+  --sidebar-primary: oklch(0.6 0.15 162); /* Emerald sidebar primary */
+  --sidebar-primary-foreground: oklch(0.08 0.005 258); /* Dark text on emerald */
+  --sidebar-accent: oklch(0.2 0.02 258); /* Dark sidebar accent */
+  --sidebar-accent-foreground: oklch(0.95 0.01 258); /* Light sidebar accent text */
+  --sidebar-border: oklch(0.2 0.02 258); /* Dark sidebar border */
+  --sidebar-ring: oklch(0.5 0.15 162); /* Emerald sidebar ring */
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom animations and enhanced visual effects */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(5, 150, 105, 0.5);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-gradient-x {
+  animation: gradient-x 3s ease infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.bg-300 {
+  background-size: 300% 300%;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Loading skeleton animations */
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
